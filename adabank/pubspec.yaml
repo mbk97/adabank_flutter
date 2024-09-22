@@ -136,3 +136,6 @@ flutter:
     - assets/images/food.png
     - assets/images/shop.png
     - assets/images/travel.png
+    - assets/images/qr_code.png
+    - assets/images/request.png
+    - assets/images/history.png

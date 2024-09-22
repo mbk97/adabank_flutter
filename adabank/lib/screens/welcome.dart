@@ -1,3 +1,4 @@
+import 'package:adabank/screens/phone_number_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -5,6 +6,13 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void navigateToHomePage() {
+      final route = MaterialPageRoute(
+        builder: (context) => const PhoneNumberScreen(),
+      );
+      Navigator.push(context, route);
+    }
+
     return Scaffold(
       backgroundColor: const Color(0XFF106048),
       body: Column(
@@ -60,7 +68,8 @@ class WelcomePage extends StatelessWidget {
                         size: 24.0,
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                        // Navigator.pop(context);
+                        navigateToHomePage();
                       },
                     ),
                   ),

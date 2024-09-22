@@ -1,7 +1,38 @@
+import 'package:adabank/components/reusable_nav.dart';
 import 'package:flutter/material.dart';
 
-class PinPage extends StatelessWidget {
+class PinPage extends StatefulWidget {
   const PinPage({super.key});
+
+  @override
+  State<PinPage> createState() => _PinPageState();
+}
+
+class _PinPageState extends State<PinPage> {
+  final TextEditingController pin1Controller = TextEditingController();
+  final TextEditingController pin2Controller = TextEditingController();
+  final TextEditingController pin3Controller = TextEditingController();
+  final TextEditingController pin4Controller = TextEditingController();
+
+  // Function to check if all fields are filled
+  void _checkPinAndSubmit() {
+    if (pin1Controller.text.isNotEmpty &&
+        pin2Controller.text.isNotEmpty &&
+        pin3Controller.text.isNotEmpty &&
+        pin4Controller.text.isNotEmpty) {
+      // Navigate to the next page or submit the form
+      navigateToHomePage();
+      // Or you can call your form submission method here
+      // _submitForm();
+    }
+  }
+
+  void navigateToHomePage() {
+    final route = MaterialPageRoute(
+      builder: (context) => const ReusableNav(),
+    );
+    Navigator.push(context, route);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,10 +99,10 @@ class PinPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildPinInputField(context),
-                  _buildPinInputField(context),
-                  _buildPinInputField(context),
-                  _buildPinInputField(context),
+                  _buildPinInputField(context, pin1Controller),
+                  _buildPinInputField(context, pin2Controller),
+                  _buildPinInputField(context, pin3Controller),
+                  _buildPinInputField(context, pin4Controller),
                 ],
               ),
               const SizedBox(height: 20), // Add more space after the PIN input
@@ -93,7 +124,8 @@ class PinPage extends StatelessWidget {
     );
   }
 
-  Widget _buildPinInputField(BuildContext context) {
+  Widget _buildPinInputField(
+      BuildContext context, TextEditingController controller) {
     return Container(
       width: 55, // Desired width
       height: 59, // Desired height
@@ -103,6 +135,7 @@ class PinPage extends StatelessWidget {
       ),
       child: Center(
         child: TextFormField(
+          controller: controller,
           cursorColor: const Color(0XFFFFFFFF),
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
@@ -118,6 +151,7 @@ class PinPage extends StatelessWidget {
           onChanged: (value) {
             if (value.length == 1) {
               FocusScope.of(context).nextFocus(); // Move to next field
+              _checkPinAndSubmit(); // Check if all fields are filled
             }
           },
         ),
