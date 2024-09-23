@@ -1,4 +1,5 @@
 import 'package:adabank/screens/homepage.dart';
+import 'package:adabank/screens/notification_page.dart';
 import 'package:adabank/screens/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,12 @@ class _ReusableNavState extends State<ReusableNav> {
   @override
   Widget build(BuildContext context) {
     // Homepage is at index 0 to make it the default
-    final List<Widget> pages = [const Homepage(), const WelcomePage()];
+    final List<Widget> pages = [
+      const Homepage(),
+      const WelcomePage(),
+      const NotificationPage(),
+      const NotificationPage(),
+    ];
 
     final List<Map> first_menu = [
       {
