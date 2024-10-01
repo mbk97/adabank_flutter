@@ -1,7 +1,7 @@
-import 'package:adabank/screens/welcome.dart';
+import 'package:adabank/screens/settings_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MaterialApp(
-      debugShowCheckedModeBanner: false, home: WelcomePage()));
+      debugShowCheckedModeBanner: false, home: SettingsPage()));
 }

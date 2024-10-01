@@ -140,3 +140,17 @@ flutter:
     - assets/images/request.png
     - assets/images/history.png
     - assets/images/receipt-text.png
+    - assets/images/card.png
+    - assets/images/lock.png
+    - assets/images/pin.png
+    - assets/images/profile_img.png
+    - assets/images/pay.png
+    - assets/images/online_pay.png
+    - assets/images/atm.png
+    - assets/images/change_fingerprint.png
+    - assets/images/change_language.png
+    - assets/images/change_password.png
+    - assets/images/turn_off_card.png
+    - assets/images/change_pin.png
+    - assets/images/dark_theme.png
+    
