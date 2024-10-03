@@ -1,5 +1,6 @@
+import 'package:adabank/screens/homepage.dart';
+import 'package:adabank/screens/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -45,13 +46,34 @@ class _ProfileState extends State<Profile> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Profile",
-                  style: TextStyle(color: Color(0XFFFFFFFF), fontSize: 16),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFFFFFFFF)),
+                  child: Center(
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Color(0xFF09703E),
+                        size: 24.0,
+                      ),
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => const Homepage(),
+                        );
+                        Navigator.push(context, route);
+                      },
+                    ),
+                  ),
                 ),
                 IconButton(
                     onPressed: () {
-                      print("hrllo");
+                      final route = MaterialPageRoute(
+                        builder: (context) => const SettingsPage(),
+                      );
+                      Navigator.push(context, route);
                     },
                     icon: const Icon(
                       Icons.settings,

@@ -1,3 +1,5 @@
+import 'package:adabank/screens/profile_page.dart';
+import 'package:adabank/screens/transfer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
@@ -108,9 +110,17 @@ class _HomepageState extends State<Homepage> {
                         )
                       ],
                     ),
-                    Image.asset(
-                      'assets/images/user_img.png',
-                      fit: BoxFit.contain,
+                    GestureDetector(
+                      onTap: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => const Profile(),
+                        );
+                        Navigator.push(context, route);
+                      },
+                      child: Image.asset(
+                        'assets/images/user_img.png',
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ],
                 ),
@@ -118,7 +128,7 @@ class _HomepageState extends State<Homepage> {
               const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.all(0),
-                child: SizedBox(
+                child: Container(
                   height: 280,
                   width: 327,
                   child: GlassFlexContainer(
@@ -132,13 +142,11 @@ class _HomepageState extends State<Homepage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const SizedBox(width: 50),
-                              const Expanded(
-                                child: Center(
-                                  child: GlassText(
-                                    "Total Balance",
-                                    style: TextStyle(
-                                        fontSize: 18, color: Color(0XFFadc9c1)),
-                                  ),
+                              const Center(
+                                child: GlassText(
+                                  "Total Balance",
+                                  style: TextStyle(
+                                      fontSize: 18, color: Color(0XFFadc9c1)),
                                 ),
                               ),
                               IconButton(
@@ -171,8 +179,18 @@ class _HomepageState extends State<Homepage> {
                           ),
                           const SizedBox(height: 20),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: items.map((item) {
-                              return Expanded(
+                              return GestureDetector(
+                                onTap: () {
+                                  if (item['label'] == "Transfer") {
+                                    final route = MaterialPageRoute(
+                                      builder: (context) =>
+                                          const TransferPage(),
+                                    );
+                                    Navigator.push(context, route);
+                                  }
+                                },
                                 child: Column(
                                   children: [
                                     Image.asset(

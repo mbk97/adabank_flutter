@@ -39,100 +39,103 @@ class NotificationPage extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Container(
-              height: 348,
-              padding: const EdgeInsets.all(20),
-              width: double.infinity,
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey, // Shadow color
-                    blurRadius: 1, // Spread of the shadow
-                    offset: Offset(0, 1), // Horizontal and vertical offset
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Transactions",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+            SingleChildScrollView(
+              child: Container(
+                height: 368,
+                padding: const EdgeInsets.all(20),
+                width: double.infinity,
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey, // Shadow color
+                      blurRadius: 1, // Spread of the shadow
+                      offset: Offset(0, 1), // Horizontal and vertical offset
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 0.3,
-                    color: Colors.grey,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ListView.builder(
-                    shrinkWrap:
-                        true, // Needed to ensure the list fits in the column
-                    itemCount: transactions.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset('assets/images/receipt-text.png'),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Flexible(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      transactions[index],
-                                      maxLines: 3,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(fontSize: 12),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    const Text(
-                                      "September 3",
-                                      maxLines: 3,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.grey),
-                                    ),
-                                  ],
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Transactions",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      height: 0.3,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ListView.builder(
+                      shrinkWrap:
+                          true, // Needed to ensure the list fits in the column
+                      itemCount: transactions.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset('assets/images/receipt-text.png'),
+                                const SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Icon(
-                                Icons.close,
-                                size: 15,
-                                color: Color(0XFF09703E),
-                              ),
-                            ],
-                          ),
-                          if (index != transactions.length - 1) ...[
-                            const SizedBox(height: 20),
-                            Container(
-                              height: 0.3,
-                              color: Colors.grey,
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        transactions[index],
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(fontSize: 12),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        "September 3",
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.close,
+                                  size: 15,
+                                  color: Color(0XFF09703E),
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 20),
-                          ]
-                        ],
-                      );
-                    },
-                  ),
-                ],
+                            if (index != transactions.length - 1) ...[
+                              const SizedBox(height: 20),
+                              Container(
+                                height: 0.3,
+                                color: Colors.grey,
+                              ),
+                              const SizedBox(height: 20),
+                            ]
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(

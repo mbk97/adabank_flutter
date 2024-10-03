@@ -1,3 +1,5 @@
+import 'package:adabank/components/reusable_nav.dart';
+import 'package:adabank/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -14,7 +16,7 @@ class Receipt extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 15,
+                height: 50,
               ),
               Container(
                 margin: const EdgeInsets.only(left: 10),
@@ -29,7 +31,10 @@ class Receipt extends StatelessWidget {
                     size: 24.0,
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    final route = MaterialPageRoute(
+                      builder: (context) => const ReusableNav(),
+                    );
+                    Navigator.push(context, route);
                   },
                 ),
               ),

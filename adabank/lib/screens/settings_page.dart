@@ -9,10 +9,17 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool isSelected = true;
+  bool isSelectedTwo = true;
 
   void toggleSwitch(bool value) {
     setState(() {
       isSelected = !isSelected;
+    });
+  }
+
+  void toggleSwitchTwo(bool value) {
+    setState(() {
+      isSelectedTwo = !isSelectedTwo;
     });
   }
 
@@ -143,7 +150,84 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     );
                   }).toList(), // Convert the mapped items to a List of Widgets
-                )
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const Text(
+                  'Language',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Image.asset(
+                    "assets/images/change_language.png", // Display the image
+                    fit: BoxFit.contain,
+                  ),
+                  title: const Text(
+                    "Change Lanuguage", // Assuming you have a 'title' field in the map
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      // Add your button functionality here
+                    },
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    // Close the drawer
+                    Navigator.pop(context);
+                  },
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const Text(
+                  'Other',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Image.asset(
+                    "assets/images/change_language.png", // Display the image
+                    fit: BoxFit.contain,
+                  ),
+                  title: const Text(
+                    "Change Lanuguage", // Assuming you have a 'title' field in the map
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                  trailing: Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Switch(
+                      value: isSelectedTwo,
+                      onChanged: toggleSwitchTwo,
+                      activeColor: Colors.white,
+                      activeTrackColor: const Color(0XFF40806d),
+                      inactiveTrackColor: const Color(0XFF40806d),
+                      inactiveThumbColor: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    // Close the drawer
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             ),
           ),

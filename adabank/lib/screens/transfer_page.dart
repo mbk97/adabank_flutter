@@ -1,3 +1,4 @@
+import 'package:adabank/screens/transfer_detail.dart';
 import 'package:flutter/material.dart';
 
 class TransferPage extends StatefulWidget {
@@ -38,7 +39,7 @@ class _TransferPageState extends State<TransferPage> {
       backgroundColor: const Color(0XFF106048),
       body: Column(
         children: [
-          const SizedBox(height: 30),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -190,26 +191,38 @@ class _TransferPageState extends State<TransferPage> {
                               final contact = filteredContacts[index];
                               return Container(
                                 margin: const EdgeInsets.only(right: 20),
-                                child: Column(
-                                  children: [
-                                    Image.asset(contact['image']!),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      contact['name']!,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 20,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    final route = MaterialPageRoute(
+                                      builder: (context) => TransferDetail(
+                                        id: index.toString(),
+                                        name: contact['name'].toString(),
+                                        image: contact['image'].toString(),
                                       ),
-                                    ),
-                                    Text(
-                                      contact['bank']!,
-                                      style: const TextStyle(
-                                        color: Color(0XFF7f7d8c),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12,
+                                    );
+                                    Navigator.push(context, route);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Image.asset(contact['image']!),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        contact['name']!,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        contact['bank']!,
+                                        style: const TextStyle(
+                                          color: Color(0XFF7f7d8c),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               );
                             },

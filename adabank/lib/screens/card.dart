@@ -1,3 +1,5 @@
+import 'package:adabank/screens/change_pin.dart';
+import 'package:adabank/screens/top_up.dart';
 import 'package:flutter/material.dart';
 
 class CardPage extends StatefulWidget {
@@ -62,32 +64,48 @@ class _CardPageState extends State<CardPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: data.map((item) {
-                          return Container(
-                            margin: const EdgeInsets.only(left: 20, right: 20),
-                            padding: const EdgeInsets.only(top: 10),
-                            width: 94,
-                            height: 94,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(25)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(
-                                      0.2), // Grey shadow with reduced opacity
-                                  blurRadius: 10, // Blur effect
-                                  spreadRadius: 2, // Spread of the shadow
-                                  offset: const Offset(
-                                      0, 4), // Position of the shadow (x, y)
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(item["image"]),
-                                const SizedBox(height: 5),
-                                Text(item['menu']),
-                              ],
+                          return GestureDetector(
+                            onTap: () {
+                              if (item['menu'] == "Change Pin") {
+                                final route = MaterialPageRoute(
+                                  builder: (context) => const ChangePin(),
+                                );
+                                Navigator.push(context, route);
+                              } else if (item['menu'] == "Top Up") {
+                                final route = MaterialPageRoute(
+                                  builder: (context) => const Topup(),
+                                );
+                                Navigator.push(context, route);
+                              }
+                            },
+                            child: Container(
+                              margin:
+                                  const EdgeInsets.only(left: 20, right: 20),
+                              padding: const EdgeInsets.only(top: 10),
+                              width: 94,
+                              height: 94,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(25)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(
+                                        0.2), // Grey shadow with reduced opacity
+                                    blurRadius: 10, // Blur effect
+                                    spreadRadius: 2, // Spread of the shadow
+                                    offset: const Offset(
+                                        0, 4), // Position of the shadow (x, y)
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.asset(item["image"]),
+                                  const SizedBox(height: 5),
+                                  Text(item['menu']),
+                                ],
+                              ),
                             ),
                           );
                         }).toList(),

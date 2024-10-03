@@ -1,3 +1,4 @@
+import 'package:adabank/screens/card.dart';
 import 'package:adabank/screens/homepage.dart';
 import 'package:adabank/screens/notification_page.dart';
 import 'package:adabank/screens/welcome.dart';
@@ -32,7 +33,7 @@ class _ReusableNavState extends State<ReusableNav> {
     final List<Widget> pages = [
       const Homepage(),
       const WelcomePage(),
-      const NotificationPage(),
+      const CardPage(),
       const NotificationPage(),
     ];
 

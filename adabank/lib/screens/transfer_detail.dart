@@ -33,7 +33,7 @@ class _TransferDetailState extends State<TransferDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
